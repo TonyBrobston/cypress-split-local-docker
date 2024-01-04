@@ -59,6 +59,8 @@ describe('index', () => {
       },
     };
     expect(config).toEqual(actualConfig);
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith('http://localhost/v1.41/containers/json', { socketPath: '/var/run/docker.sock' });
     expect(cypressSplit).toHaveBeenCalledTimes(1);
     expect(cypressSplit).toHaveBeenCalledWith(on, actualConfig);
   });
