@@ -1,7 +1,6 @@
 {
   "name": "cypress-split-local-docker",
   "version": "1.0.0",
-  "type": "module",
   "description": "This package wraps cypress-split and enables cypress parallelization for local docker",
   "main": "src/index.js",
   "scripts": {
