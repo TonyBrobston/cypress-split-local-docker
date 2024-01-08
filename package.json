@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "axios": "^1.6.4",
-    "cypress-split": "^1.18.1",
-    "debug": "^4.3.4"
+    "cypress-split": "^1.18.1"
   }
 }
