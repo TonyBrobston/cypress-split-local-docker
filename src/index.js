@@ -12,10 +12,14 @@ const cypressSplitLocalDocker = async (on, config) => {
     debug('containers:', JSON.stringify(containers, null, 2));
     const containerId = process.env.HOSTNAME;
     debug('containerId:', containerId);
+    const split = determineSplit(containers, containerId);
+    debug('split:', split);
     // eslint-disable-next-line no-param-reassign
-    config.env.split = determineSplit(containers, containerId);
+    config.env.split = split;
+    const splitIndex = determineSplitIndex(containers, containerId);
+    debug('splitIndex:', splitIndex);
     // eslint-disable-next-line no-param-reassign
-    config.env.splitIndex = determineSplitIndex(containers, containerId);
+    config.env.splitIndex = splitIndex;
   }
   cypressSplit(on, config);
 };
