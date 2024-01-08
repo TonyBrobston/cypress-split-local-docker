@@ -9,18 +9,10 @@ const cypressSplitLocalDocker = async (on, config) => {
       { socketPath: '/var/run/docker.sock' },
     )).data;
     const containerId = process.env.HOSTNAME;
-    const split = determineSplit(containers, containerId);
     // eslint-disable-next-line no-param-reassign
-    config.env.split = split;
-    const splitIndex = determineSplitIndex(containers, containerId);
+    config.env.split = determineSplit(containers, containerId);
     // eslint-disable-next-line no-param-reassign
-    config.env.splitIndex = splitIndex;
-    console.log({
-      containers,
-      containerId,
-      split,
-      splitIndex,
-    });
+    config.env.splitIndex = determineSplitIndex(containers, containerId);
   }
   cypressSplit(on, config);
 };
