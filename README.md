@@ -32,7 +32,6 @@ services:
     image: cypress/included
     environment:
       - LOCAL=true
-      - SPLIT_FILE=cypress/timings.json
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/home
