@@ -1,13 +1,14 @@
+const serviceKey = 'com.docker.compose.service';
+
 const determineRunningContainers = (containers) => containers.filter(({ State }) => State === 'running');
 
-const determineServiceName = (containers, containerId, serviceKey) => containers.find(
+const determineServiceName = (containers, containerId) => containers.find(
   ({ Id }) => Id.startsWith(containerId),
 ).Labels[serviceKey];
 
 const determineSplit = (containers, containerId) => {
   const runningContainers = determineRunningContainers(containers);
-  const serviceKey = 'com.docker.compose.service';
-  const serviceName = determineServiceName(runningContainers, containerId, serviceKey);
+  const serviceName = determineServiceName(runningContainers, containerId);
   return runningContainers.reduce(
     (accumulator, { Labels }) => (
       Labels[serviceKey] === serviceName ? accumulator + 1 : accumulator
