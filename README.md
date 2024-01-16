@@ -43,3 +43,6 @@ Run the `cypress` service and scale it:
 ```
 docker-compose up --scale cypress=3
 ```
+
+## Other notes
+It seems there is a small bug relating to querying containers, where the index ends up being greater than the count. It seems that `docker container prune -f`, which removes containers that are not running fixes the issue. I explicitly filter out all non-running containers, but I must be misunderstanding the data coming back from the docker api. This seems like a minor bug that is solvable, but I'm just using the workaround for now, since this project is proof of concept.
