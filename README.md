@@ -23,7 +23,7 @@ module.exports = defineConfig({
 });
 ```
 
-Create/Update docker-compose.yml:
+Create/Update docker-compose.yml (replace `http://localhost:3000` with your application's url):
 ```
 version: "3.4"
 
@@ -36,7 +36,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/home
     working_dir: /home
-    entrypoint: /bin/bash -c 'npx wait-on@latest https://central.local.boostretail.com:3001 && npx cypress run'
+    entrypoint: /bin/bash -c 'npx wait-on@latest http://localhost:3000 && npx cypress run'
 ```
 
 Run the `cypress` service and scale it: 
