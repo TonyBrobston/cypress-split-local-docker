@@ -1,6 +1,6 @@
 # cypress-split-local-docker
 
-This package wraps [cypress-split](https://github.com/bahmutov/cypress-split) and uses its [Other CIs](https://github.com/bahmutov/cypress-split?tab=readme-ov-file#other-cis) approach. This package grabs the current containers id and makes an api call to the docker api. It uses these two things to determine the current container's index and the number of container's running with the same service name as the current container. These two numbers are then passed to `cypress-split`.
+This package wraps [cypress-split](https://github.com/bahmutov/cypress-split) and uses its [Other CIs](https://github.com/bahmutov/cypress-split?tab=readme-ov-file#other-cis) approach. This package grabs the current containers id and makes an api call to the docker api. It uses these two things to determine the current container's index and the number of containers running with the same service name as the current container. These two numbers are then passed to `cypress-split`.
 
 ## Getting Started
 
